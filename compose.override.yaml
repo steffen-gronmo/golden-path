@@ -1,0 +1,6 @@
+services:
+  web:
+    environment:
+      - OTEL_SERVICE_NAME=goldenpath-web
+    depends_on:
+      - api

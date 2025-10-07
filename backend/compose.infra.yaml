@@ -1,0 +1,29 @@
+include:
+  - ../compose.infra.yaml
+
+networks:
+  goldenpath_network:
+    name: goldenpath_network
+    external: false
+
+services:
+  postgres:
+    image: postgres:17-alpine@sha256:5d14c08a257610d8e27c52ce0f10de5d9cce4c232e1277d44d7d6fb628b3d1a7
+    networks:
+      - goldenpath_network
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=demo_db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres-data:

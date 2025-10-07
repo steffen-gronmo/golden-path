@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>Arbeidstilsynet/renovate-config"],
+  "packageRules": [
+    {
+      "matchFileNames": ["web/package.json"],
+      "extends": ["config:js-app"]
+    }
+  ]
+}

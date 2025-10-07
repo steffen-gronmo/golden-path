@@ -1,0 +1,8 @@
+team: plattform
+backend:
+  name: goldenpath-backend
+  ingress: https://goldenpath-api.intern.arbeidstilsynet.no
+web:
+  name: goldenpath-web
+  ingresses:
+    - https://goldenpath.intern.arbeidstilsynet.no

@@ -1,0 +1,40 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: "{{web.name}}"
+  namespace: "{{team}}"
+  labels:
+    team: "{{team}}"
+spec:
+  accessPolicy:
+    outbound:
+      rules:
+        # relevant if you want to use API routes or React Server Functions to directly access the backend through service discovery
+        - application: "{{backend.name}}"
+          namespace: "{{team}}"
+  ingresses:
+    {{#each web.ingresses as |url|}}
+    - {{url}}
+    {{/each}}
+  env:
+    # some env var to be used in serverside Next
+    - name: foo
+      value: bar
+    - name: WEB_APP_URL
+      value: "{{web.ingresses.[0]}}"
+    # relevant if you want to use API routes or React Server Functions to access the backend through service discovery
+    # - name: SERVER_DIRECT_API_URL
+    #   value: "http://{{backend.name}}"
+  image: "{{image}}"
+  port: 3000
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
+  replicas:
+    max: 1
+    min: 1
+  resources:
+    requests:
+      cpu: 10m
+      memory: 128Mi

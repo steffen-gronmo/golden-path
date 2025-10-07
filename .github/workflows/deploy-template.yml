@@ -1,0 +1,42 @@
+name: Deploy to Nais (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      app:
+        required: true
+        type: string
+      cluster:
+        required: true
+        type: string
+      vars_file:
+        required: true
+        type: string
+      resource_file:
+        required: true
+        type: string
+      image:
+        required: true
+        type: string
+      telemetry:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - name: Deploy ${{ inputs.app }} to ${{ inputs.cluster }}
+        uses: nais/deploy/actions/deploy@961addd1e4d4211f1a7333ada5fde85f7c9aa5b7 # v2
+        env:
+          CLUSTER: ${{ inputs.cluster }}
+          RESOURCE: ${{ inputs.resource_file }}
+          VAR: image=${{ inputs.image }}
+          VARS: ${{ inputs.vars_file }}
+          TELEMETRY: ${{ inputs.telemetry }}

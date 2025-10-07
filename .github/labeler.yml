@@ -1,0 +1,37 @@
+backend:
+  - changed-files:
+      - all-globs-to-any-file:
+          - "backend/**"
+          - "!backend/package.json"
+
+web:
+  - changed-files:
+      - all-globs-to-any-file:
+          - "web/**"
+          - "!web/package.json"
+
+documentation:
+  - changed-files:
+      - all-globs-to-any-file:
+          - "**/*.md"
+          - "!**/CHANGELOG.md"
+          - "!.changeset/**"
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file: "package-lock.json"
+
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ".github/**"
+
+config:
+  - changed-files:
+      - all-globs-to-any-file:
+          - "**/.*"
+          - "!.github/**"
+          - "!.changeset/**"
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.config*"
+          - "**/tsconfig.json"

@@ -1,0 +1,29 @@
+include:
+  - ../compose.infra.yaml
+
+networks:
+  goldenpath_network:
+    name: goldenpath_network
+    external: false
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: web/Dockerfile
+      args:
+        # must be accessible by browser, hence no service names
+        - NEXT_PUBLIC_API_URL_DEV=http://localhost:8080 # api
+        # Faro SDK expects the /collect endpoint exposed by Grafana Alloy faro.receiver
+        - NEXT_PUBLIC_FARO_URL_DEV=http://localhost:12345/collect # alloy
+        - NEXT_PUBLIC_SERVICE_NAME=goldenpath-web
+    ports:
+      - "3000:3000"
+    networks:
+      - goldenpath_network
+    environment:
+      - NODE_ENV=production
+      - WEB_APP_URL=http://localhost:3000
+      - OTEL_SERVICE_NAME=goldenpath-web
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://monitoring_otel:4318
+      - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf

@@ -1,0 +1,26 @@
+include:
+  - compose.infra.yaml
+
+networks:
+  goldenpath_network:
+    name: goldenpath_network
+    external: false
+
+services:
+  api:
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    networks:
+      - goldenpath_network
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      Infrastructure__ConnectionString: Host=postgres;Port=5432;Database=demo_db;Username=postgres;Password=postgres
+      OTEL_SERVICE_NAME: goldenpath-backend
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://monitoring_otel:4317
+      API__Cors__AllowedOrigins__0: http://localhost:3000
+      API__Cors__AllowCredentials: false
+    depends_on:
+      postgres:
+        condition: service_healthy

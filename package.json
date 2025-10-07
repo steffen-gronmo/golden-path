@@ -1,0 +1,41 @@
+{
+  "name": "goldenpath",
+  "version": "0.0.0",
+  "description": "Golden Path Web Application Template with .NET backend and Next.js frontend",
+  "private": true,
+  "scripts": {
+    "setup": "pnpm install && pnpm --filter backend run restore",
+    "dev": "pnpm -r --parallel --filter backend --filter web run dev",
+    "dev:backend": "pnpm --filter backend run dev",
+    "dev:backend:app": "pnpm --filter backend run dev:app",
+    "dev:backend:watch": "pnpm --filter backend run dev:app:watch",
+    "dev:backend:docker": "pnpm --filter backend run docker:up",
+    "dev:web": "pnpm --filter web run dev",
+    "docker:up": "docker compose up -d",
+    "docker:up:build": "docker compose up -d --build",
+    "docker:web:build": "docker build -f web/Dockerfile -t goldenpath-template-web .",
+    "docker:web:run": "docker run --rm -p 3000:3000 goldenpath-template-web",
+    "docker:down": "docker compose -f compose.yaml down",
+    "docker:logs": "docker compose logs -f",
+    "build": "pnpm -r --parallel --filter backend --filter web run build",
+    "build:backend": "pnpm --filter backend run build",
+    "build:web": "pnpm --filter web run build",
+    "test": "pnpm -r --parallel --filter backend --filter web run test",
+    "test:backend": "pnpm --filter backend run test",
+    "test:web": "pnpm --filter web run test",
+    "clean": "pnpm -r --parallel --filter backend --filter web run clean",
+    "clean:backend": "pnpm --filter backend run clean",
+    "clean:web": "pnpm --filter web run clean",
+    "format": "pnpm -r --parallel run format && pnpm run format:prettier:write",
+    "format:check": "pnpm -r --parallel run format:check && pnpm run format:prettier:check",
+    "format:prettier:write": "prettier --write .",
+    "format:prettier:check": "prettier --check ."
+  },
+  "packageManager": "pnpm@10.18.0",
+  "devDependencies": {
+    "prettier": "3.6.2"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

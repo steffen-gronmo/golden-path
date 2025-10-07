@@ -1,0 +1,73 @@
+logging {
+  level = "info"
+  format = "logfmt"
+}
+
+faro.receiver "integrations_app_agent_receiver" {
+  extra_log_labels = {
+    "app_name" = "",
+    "service_name" = "",
+  }
+  server {
+    listen_address = "0.0.0.0"
+    listen_port    = 12347
+    cors_allowed_origins = ["*"]
+    max_allowed_payload_size = "10MiB"
+    rate_limiting { rate = 100 }
+  }
+  sourcemaps {}
+  output {
+    logs   = [loki.process.default.receiver]
+    traces = [otelcol.exporter.otlp.default.input]
+  }
+}
+
+otelcol.exporter.otlp "default" {
+  client {
+    endpoint = "monitoring_otel:4317"
+    tls {
+      insecure = true
+    } 
+  }
+}
+
+otelcol.exporter.prometheus "default" {
+  forward_to = [prometheus.remote_write.default.receiver]
+}
+
+prometheus.remote_write "default" {
+  endpoint {
+    url = "http://monitoring_otel:9090/api/v1/write"
+  }
+}
+
+loki.process "default" {
+  forward_to = [loki.relabel.transform.receiver]
+
+  stage.logfmt {
+    mapping = { 
+      "app_name" = "",
+    }
+  }
+
+  stage.labels {
+    values = { 
+      app_name = "",
+    }
+  }
+}
+
+loki.relabel "transform" {
+  forward_to = [loki.write.default.receiver]
+
+  rule {
+    source_labels = ["app_name"]
+    target_label = "service_name"
+  }
+}
+
+loki.write "default" {
+  endpoint {
+    url = "http://monitoring_otel:3100/loki/api/v1/push"
+  }
+}

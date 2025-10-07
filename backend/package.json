@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "restore": "dotnet restore && dotnet tool restore",
+    "build": "dotnet build",
+    "dev": "npm run docker:up:db && npm run dev:app:watch",
+    "dev:app": "dotnet run --project API/API.Adapters environment=Development",
+    "dev:app:watch": "dotnet watch run --project API/API.Adapters environment=Development",
+    "docker:up": "docker compose up -d",
+    "docker:up:build": "docker compose up -d --build",
+    "docker:up:db": "docker compose -f compose.infra.yaml up -d",
+    "docker:down": "docker compose -f compose.yaml down",
+    "docker:logs": "docker compose logs -f",
+    "test": "dotnet test",
+    "test:watch": "dotnet test --watch",
+    "clean": "dotnet clean",
+    "format": "dotnet csharpier format .",
+    "format:check": "dotnet csharpier check ."
+  }
+}

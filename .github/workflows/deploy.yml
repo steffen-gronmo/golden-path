@@ -1,0 +1,223 @@
+name: Deploy to Nais
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+#                  ┌─────────────────┐
+#                  │  check_changes  │ ──── outputs: backend/web changed
+#                  └─────────────────┘
+#                    │             │
+#                    ▼             ▼
+#               ┌─────────┐    ┌─────────┐
+#               │ build_  │    │ build_  │
+#               │backend  │    │  web    │
+#               └─────────┘    └─────────┘
+#                    │              │
+#                    ▼              ▼
+#             ┌─────────────┐ ┌─────────────┐
+#             │ deploy_dev_ │ │ deploy_dev_ │
+#             │  backend    │ │    web      │
+#             └─────────────┘ └─────────────┘
+#                    │               │
+#                    └────────┬──────┘
+#                             ▼
+#                       ┌────────────┐
+#                       │    e2e     │
+#                       └────────────┘
+#                             │
+#                    ┌────────┴────────┐
+#                    ▼                 ▼
+#             ┌─────────────┐   ┌─────────────┐
+#             │deploy_prod_ │   │deploy_prod_ │
+#             │  backend    │   │    web      │
+#             └─────────────┘   └─────────────┘
+
+jobs:
+  check_changes:
+    # NB: remove this check after generating your new repo from the template repo
+    if: github.repository == 'Arbeidstilsynet/goldenpath'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      backend: ${{ steps.backend.outputs.changes_detected }}
+      web: ${{ steps.web.outputs.changes_detected }}
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+        with:
+          fetch-depth: 0
+
+      - name: Backend changed?
+        uses: Arbeidstilsynet/action-check-changes@c9e44b58e2d689f14d52b392abe4c669408148b8 # v1
+        id: backend
+        with:
+          include: |
+            backend/
+            .nais/backend.yaml
+            .nais/vars-*.yaml
+            .github/workflows/deploy*.yml
+          exclude: |
+            backend/README.md
+
+      - name: Web changed?
+        uses: Arbeidstilsynet/action-check-changes@c9e44b58e2d689f14d52b392abe4c669408148b8 # v1
+        id: web
+        with:
+          include: |
+            web/
+            package-lock.json
+            .nais/web.yaml
+            .nais/vars-*.yaml
+            .github/workflows/deploy*.yml
+          exclude: |
+            web/README.md
+
+  build_backend:
+    needs: check_changes
+    if: needs.check_changes.result == 'success' && needs.check_changes.outputs.backend == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      image: ${{ steps.docker.outputs.image }}
+      telemetry: ${{ steps.docker.outputs.telemetry }}
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - name: Build and push backend image
+        id: docker
+        uses: nais/docker-build-push@791ebb6f74b82849c742a9bc9c97abe44c6c111f # v0
+        with:
+          team: plattform
+          image_suffix: backend
+          docker_context: ./backend
+          dockerfile: ./backend/Dockerfile
+
+  build_web:
+    needs: check_changes
+    if: needs.check_changes.result == 'success' && needs.check_changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      image: ${{ steps.docker.outputs.image }}
+      telemetry: ${{ steps.docker.outputs.telemetry }}
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - name: Read build args from vars files
+        id: vars
+        run: |
+          SERVICE_NAME=$(yq '.web.name' .nais/vars-dev.yaml)
+          DEV_API_URL=$(yq '.backend.ingress' .nais/vars-dev.yaml)
+          PROD_API_URL=$(yq '.backend.ingress' .nais/vars-prod.yaml)
+          echo "service_name=$SERVICE_NAME" >> $GITHUB_OUTPUT
+          echo "dev_api_url=$DEV_API_URL" >> $GITHUB_OUTPUT
+          echo "prod_api_url=$PROD_API_URL" >> $GITHUB_OUTPUT
+      - name: Build and push web image
+        id: docker
+        uses: nais/docker-build-push@791ebb6f74b82849c742a9bc9c97abe44c6c111f # v0
+        with:
+          team: plattform
+          image_suffix: web
+          docker_context: .
+          dockerfile: ./web/Dockerfile
+          # bundle both URLs to avoid having to rebuild the image for prod
+          build_args: |
+            NEXT_PUBLIC_SERVICE_NAME=${{ steps.vars.outputs.service_name }}
+            NEXT_PUBLIC_API_URL_DEV=${{ steps.vars.outputs.dev_api_url }}
+            NEXT_PUBLIC_API_URL_PROD=${{ steps.vars.outputs.prod_api_url }}
+            NEXT_PUBLIC_FARO_URL_DEV=https://telemetry.external.dev.atil.cloud.nais.io/collect
+            NEXT_PUBLIC_FARO_URL_PROD=https://telemetry.external.prod.atil.cloud.nais.io/collect
+
+  deploy_dev_backend:
+    needs: build_backend
+    uses: ./.github/workflows/deploy-template.yml
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    with:
+      app: backend
+      cluster: dev
+      vars_file: .nais/vars-dev.yaml
+      resource_file: .nais/backend.yaml
+      image: ${{ needs.build_backend.outputs.image }}
+      telemetry: ${{ needs.build_backend.outputs.telemetry }}
+
+  deploy_dev_web:
+    needs: build_web
+    uses: ./.github/workflows/deploy-template.yml
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    with:
+      app: web
+      cluster: dev
+      vars_file: .nais/vars-dev.yaml
+      resource_file: .nais/web.yaml
+      image: ${{ needs.build_web.outputs.image }}
+      telemetry: ${{ needs.build_web.outputs.telemetry }}
+
+  e2e:
+    needs: [deploy_dev_backend, deploy_dev_web]
+    # Only run if at least one app deployed and all attempted deployments succeeded
+    if: |
+      (needs.deploy_dev_backend.result == 'success' || needs.deploy_dev_web.result == 'success') &&
+      (needs.deploy_dev_backend.result == 'success' || needs.deploy_dev_backend.result == 'skipped') &&
+      (needs.deploy_dev_web.result == 'success' || needs.deploy_dev_web.result == 'skipped')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Placeholder for E2E tests
+        run: echo "E2E tests go here"
+
+  deploy_prod_backend:
+    needs: [build_backend, deploy_dev_backend, e2e]
+    # TODO: remove false when prod environment is ready
+    if: |
+      false &&
+      needs.e2e.result == 'success' &&
+      needs.deploy_dev_backend.result == 'success'
+    uses: ./.github/workflows/deploy-template.yml
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    with:
+      app: backend
+      cluster: prod
+      vars_file: .nais/vars-prod.yaml
+      resource_file: .nais/backend.yaml
+      image: ${{ needs.build_backend.outputs.image }}
+      telemetry: ${{ needs.build_backend.outputs.telemetry }}
+
+  deploy_prod_web:
+    needs: [build_web, deploy_dev_web, e2e]
+    # TODO: remove false when prod environment is ready
+    if: |
+      false &&
+      needs.e2e.result == 'success' &&
+      needs.deploy_dev_web.result == 'success'
+    uses: ./.github/workflows/deploy-template.yml
+    permissions:
+      contents: read
+      id-token: write
+      actions: read
+    with:
+      app: web
+      cluster: prod
+      vars_file: .nais/vars-prod.yaml
+      resource_file: .nais/web.yaml
+      image: ${{ needs.build_web.outputs.image }}
+      telemetry: ${{ needs.build_web.outputs.telemetry }}
