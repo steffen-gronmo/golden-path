@@ -39,8 +39,6 @@ concurrency:
 
 jobs:
   check_changes:
-    # NB: remove this check after generating your new repo from the template repo
-    if: github.repository == 'Arbeidstilsynet/goldenpath'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
