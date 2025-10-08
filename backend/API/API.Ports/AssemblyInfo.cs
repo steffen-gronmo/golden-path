@@ -1,3 +1,3 @@
-﻿namespace Arbeidstilsynet.ExampleBackend.API.Ports;
+﻿namespace Arbeidstilsynet.GoldenPathBackend.API.Ports;
 
 public interface IAssemblyInfo { }

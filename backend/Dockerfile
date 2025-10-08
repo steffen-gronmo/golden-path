@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0-alpine@sha256:cd6c81064940585fc59a2c7b169268dff2e015565ecde961f7c6e2a18434a210 AS build
 WORKDIR /source
 
-COPY ExampleBackend.sln .
+COPY GoldenPathBackend.sln .
 COPY nuget.config .
 COPY Domain/. ./Domain/
 COPY API/. ./API/

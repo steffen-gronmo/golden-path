@@ -1,9 +1,9 @@
-using Arbeidstilsynet.ExampleBackend.API.Ports;
-using Arbeidstilsynet.ExampleBackend.API.Ports.Requests;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.DependencyInjection;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test.Fixtures;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports.Requests;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test.Fixtures;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters.Test.Fixture;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters.Test.Fixture;
 
 public class ApplicationFixture : WebApplicationFactory<IAssemblyInfo>, IAsyncLifetime
 {

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Extensions;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Extensions;
 
 internal static partial class LoggerExtensions
 {

@@ -1,28 +1,28 @@
 using ArchUnitNET.Domain;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
-namespace Arbeidstilsynet.ExampleBackend.ArchUnit.Tests
+namespace Arbeidstilsynet.GoldenPathBackend.ArchUnit.Tests
 {
     internal static class Constants
     {
         internal static string NameSpacePrefix =
-            $"Arbeidstilsynet\\.{Arbeidstilsynet.ExampleBackend.API.Adapters.IAssemblyInfo.AppName}";
+            $"Arbeidstilsynet\\.{Arbeidstilsynet.GoldenPathBackend.API.Adapters.IAssemblyInfo.AppName}";
     }
 
     internal static class Layers
     {
         internal static readonly System.Reflection.Assembly DomainLogicAssembly =
-            typeof(Arbeidstilsynet.ExampleBackend.Domain.Logic.IAssemblyInfo).Assembly;
+            typeof(Arbeidstilsynet.GoldenPathBackend.Domain.Logic.IAssemblyInfo).Assembly;
         internal static readonly System.Reflection.Assembly ApiPortAssembly =
-            typeof(Arbeidstilsynet.ExampleBackend.API.Ports.IAssemblyInfo).Assembly;
+            typeof(Arbeidstilsynet.GoldenPathBackend.API.Ports.IAssemblyInfo).Assembly;
         internal static readonly System.Reflection.Assembly InfrastructureAdapterAssembly =
-            typeof(Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.IAssemblyInfo).Assembly;
+            typeof(Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.IAssemblyInfo).Assembly;
         internal static readonly System.Reflection.Assembly InfrastructurePortAssembly =
-            typeof(Arbeidstilsynet.ExampleBackend.Infrastructure.Ports.IAssemblyInfo).Assembly;
+            typeof(Arbeidstilsynet.GoldenPathBackend.Infrastructure.Ports.IAssemblyInfo).Assembly;
         internal static readonly System.Reflection.Assembly DomainAssembly =
-            typeof(Arbeidstilsynet.ExampleBackend.Domain.Data.IAssemblyInfo).Assembly;
+            typeof(Arbeidstilsynet.GoldenPathBackend.Domain.Data.IAssemblyInfo).Assembly;
         internal static readonly System.Reflection.Assembly ApiAdapterAssembly =
-            typeof(Arbeidstilsynet.ExampleBackend.API.Adapters.IAssemblyInfo).Assembly;
+            typeof(Arbeidstilsynet.GoldenPathBackend.API.Adapters.IAssemblyInfo).Assembly;
 
         internal static readonly System.Reflection.Assembly SystemConsoleAssembly =
             typeof(Console).Assembly;

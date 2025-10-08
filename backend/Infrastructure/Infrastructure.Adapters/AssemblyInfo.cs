@@ -4,6 +4,6 @@
 [assembly: InternalsVisibleTo("Infrastructure.Adapters.Test")]
 [assembly: InternalsVisibleTo("API.Adapters.Test")]
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters;
 
 interface IAssemblyInfo { }

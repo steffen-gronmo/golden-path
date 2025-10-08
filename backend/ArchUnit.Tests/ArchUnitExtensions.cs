@@ -3,7 +3,7 @@ using ArchUnitNET.Domain;
 using ArchUnitNET.Fluent.Syntax.Elements.Types;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
-namespace Arbeidstilsynet.ExampleBackend.ArchUnit.Tests;
+namespace Arbeidstilsynet.GoldenPathBackend.ArchUnit.Tests;
 
 internal static class ArchUnitExtensions
 {

@@ -5,7 +5,7 @@ using ArchUnitNET.Loader;
 using ArchUnitNET.xUnit;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
-namespace Arbeidstilsynet.ExampleBackend.ArchUnit.Tests;
+namespace Arbeidstilsynet.GoldenPathBackend.ArchUnit.Tests;
 
 public class InfrastructurePortLayerTests
 {

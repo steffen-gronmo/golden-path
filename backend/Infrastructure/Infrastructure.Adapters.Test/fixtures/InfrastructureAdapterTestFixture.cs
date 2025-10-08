@@ -1,13 +1,13 @@
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.DependencyInjection;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit.Microsoft.DependencyInjection;
 using Xunit.Microsoft.DependencyInjection.Abstracts;
 using Xunit.Sdk;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test.Fixtures;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test.Fixtures;
 
 public class InfrastructureAdapterTestFixture : TestBedFixture, IAsyncLifetime
 {

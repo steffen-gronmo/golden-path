@@ -1,9 +1,9 @@
-using Arbeidstilsynet.ExampleBackend.Domain.Logic.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Logic.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit.Microsoft.DependencyInjection;
 using Xunit.Microsoft.DependencyInjection.Abstracts;
 
-namespace Arbeidstilsynet.ExampleBackend.Domain.Logic.Test.Fixtures;
+namespace Arbeidstilsynet.GoldenPathBackend.Domain.Logic.Test.Fixtures;
 
 public class ApplicationTestFixture : TestBedFixture
 {

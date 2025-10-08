@@ -1,7 +1,7 @@
-using Arbeidstilsynet.ExampleBackend.API.Ports.Requests;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports.Requests;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Ports;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Ports;
 
 public interface ISakService
 {

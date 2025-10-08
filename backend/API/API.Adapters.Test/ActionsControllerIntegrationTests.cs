@@ -2,13 +2,13 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Arbeidstilsynet.ExampleBackend.API.Adapters.Test.Fixture;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.API.Adapters.Test.Fixture;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
 using Shouldly;
 using Xunit.Abstractions;
 using Xunit.Microsoft.DependencyInjection.Abstracts;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters.Test;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters.Test;
 
 public class ActionsControllerIntegrationTests(ApplicationFixture fixture)
     : IClassFixture<ApplicationFixture>

@@ -1,4 +1,4 @@
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model;
 
 internal abstract class BaseEntity
 {

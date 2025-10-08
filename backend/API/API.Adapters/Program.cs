@@ -1,10 +1,10 @@
 using Arbeidstilsynet.Common.AspNetCore.Extensions.Extensions;
-using Arbeidstilsynet.ExampleBackend.API.Adapters;
-using Arbeidstilsynet.ExampleBackend.API.Adapters.Extensions;
-using Arbeidstilsynet.ExampleBackend.Domain.Logic;
-using Arbeidstilsynet.ExampleBackend.Domain.Logic.DependencyInjection;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.DependencyInjection;
-using IAssemblyInfo = Arbeidstilsynet.ExampleBackend.API.Adapters.IAssemblyInfo;
+using Arbeidstilsynet.GoldenPathBackend.API.Adapters;
+using Arbeidstilsynet.GoldenPathBackend.API.Adapters.Extensions;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Logic;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Logic.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.DependencyInjection;
+using IAssemblyInfo = Arbeidstilsynet.GoldenPathBackend.API.Adapters.IAssemblyInfo;
 
 var builder = WebApplication.CreateBuilder(args);
 
