@@ -1,6 +1,6 @@
 using Testcontainers.PostgreSql;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test.Fixtures;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test.Fixtures;
 
 public class PostgresDbDemoFixture : IAsyncLifetime
 {

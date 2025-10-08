@@ -4,7 +4,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <RootNamespace>Arbeidstilsynet.ExampleBackend.ArchUnit.Tests</RootNamespace>
+    <RootNamespace>Arbeidstilsynet.GoldenPathBackend.ArchUnit.Tests</RootNamespace>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>

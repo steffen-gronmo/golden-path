@@ -2,12 +2,12 @@
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Arbeidstilsynet.ExampleBackend.API.Adapters.Test.Fixture;
-using Arbeidstilsynet.ExampleBackend.API.Ports.Requests;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.API.Adapters.Test.Fixture;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports.Requests;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
 using Shouldly;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters.Test;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters.Test;
 
 public class SakerControllerIntegrationTests(ApplicationFixture fixture)
     : IClassFixture<ApplicationFixture>

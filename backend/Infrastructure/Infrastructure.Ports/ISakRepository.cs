@@ -1,6 +1,6 @@
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Ports;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Ports;
 
 public interface ISakRepository
 {

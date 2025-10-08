@@ -1,13 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using Arbeidstilsynet.ExampleBackend.API.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports;
 using Mapster;
 using MapsterMapper;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 // ReSharper disable once CheckNamespace
-namespace Arbeidstilsynet.ExampleBackend.Domain.Logic.DependencyInjection;
+namespace Arbeidstilsynet.GoldenPathBackend.Domain.Logic.DependencyInjection;
 
 public class DomainConfiguration
 {

@@ -1,7 +1,7 @@
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db;
 
 internal class SakDbContext(DbContextOptions<SakDbContext> dbContextOption)
     : DbContext(dbContextOption)

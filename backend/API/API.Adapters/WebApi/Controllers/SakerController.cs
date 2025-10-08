@@ -1,9 +1,9 @@
-using Arbeidstilsynet.ExampleBackend.API.Ports;
-using Arbeidstilsynet.ExampleBackend.API.Ports.Requests;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports.Requests;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters.WebApi.Controllers;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters.WebApi.Controllers;
 
 [Route("[controller]")]
 [ApiController]

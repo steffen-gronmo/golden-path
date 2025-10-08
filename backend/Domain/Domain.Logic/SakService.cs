@@ -1,11 +1,11 @@
-using Arbeidstilsynet.ExampleBackend.API.Ports;
-using Arbeidstilsynet.ExampleBackend.API.Ports.Requests;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Domain.Logic.DependencyInjection;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports.Requests;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Logic.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Ports;
 using Microsoft.Extensions.Options;
 
-namespace Arbeidstilsynet.ExampleBackend.Domain.Logic;
+namespace Arbeidstilsynet.GoldenPathBackend.Domain.Logic;
 
 internal class SakService(ISakRepository sakRepository, IOptions<DomainConfiguration> domainConfig)
     : ISakService

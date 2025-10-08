@@ -1,14 +1,14 @@
-using Arbeidstilsynet.ExampleBackend.API.Ports;
-using Arbeidstilsynet.ExampleBackend.API.Ports.Requests;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Domain.Logic.DependencyInjection;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports.Requests;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Logic.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Ports;
 using Bogus;
 using Microsoft.Extensions.Options;
 using NSubstitute;
 using Shouldly;
 
-namespace Arbeidstilsynet.ExampleBackend.Domain.Logic.Test;
+namespace Arbeidstilsynet.GoldenPathBackend.Domain.Logic.Test;
 
 public class SakServiceTests
 {

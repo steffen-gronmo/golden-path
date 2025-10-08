@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Ports.Requests;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Ports.Requests;
 
 public record CreateSakDto
 {

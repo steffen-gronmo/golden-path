@@ -2,9 +2,9 @@
 
 [assembly: InternalsVisibleTo("API.Adapters.Test")]
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters;
 
 public interface IAssemblyInfo
 {
-    public const string AppName = "ExampleBackend";
+    public const string AppName = "GoldenPathBackend";
 }

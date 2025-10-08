@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
-using Arbeidstilsynet.ExampleBackend.Domain.Logic;
-using Arbeidstilsynet.ExampleBackend.Domain.Logic.DependencyInjection;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Logic;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Logic.DependencyInjection;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.DependencyInjection;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters;
 
 internal record AppSettings
 {

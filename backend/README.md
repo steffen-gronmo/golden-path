@@ -74,7 +74,7 @@ docker compose down -v
 
 ## 🏃‍♂️ Getting Started
 
-Begin with defining a name for your service/application by updating the [AppName](./API/API.Adapters/AssemblyInfo.cs) constant. Additionally, update all namespaces projectwide (there are arch unit tests which enforce this guideline): Search and replace `ExampleBackend` with your new defined app name throughout the whole project.
+Begin with defining a name for your service/application by updating the [AppName](./API/API.Adapters/AssemblyInfo.cs) constant. Additionally, update all namespaces projectwide (there are arch unit tests which enforce this guideline): Search and replace `GoldenPathBackend` with your new defined app name throughout the whole project.
 
 How you start implementing your application is up to you. Many start by defining the application's business logic in the [Domain Logic](./Domain/Domain.Logic/) folder. But it may also be a good start to define your entry points / REST API first. Follow the hexagonal architecture principles by placing your code in the correct, provided layers. You can use the show case application as a guideline to see how things are connected.
 

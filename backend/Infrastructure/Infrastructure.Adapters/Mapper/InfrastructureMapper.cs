@@ -1,8 +1,8 @@
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model;
 using Mapster;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Mapper;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Mapper;
 
 internal class InfrastructureMapper : IRegister
 {

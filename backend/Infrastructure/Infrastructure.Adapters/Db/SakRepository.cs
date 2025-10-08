@@ -1,11 +1,11 @@
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Extensions;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Extensions;
 using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using SakEntity = Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model.SakEntity;
+using SakEntity = Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model.SakEntity;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db;
 
 internal class SakRepository(SakDbContext dbContext, IMapper mapper, ILogger<SakRepository> logger)
     : Ports.ISakRepository

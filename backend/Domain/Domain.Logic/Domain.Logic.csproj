@@ -13,7 +13,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>Arbeidstilsynet.ExampleBackend.Domain.Logic</RootNamespace>
+    <RootNamespace>Arbeidstilsynet.GoldenPathBackend.Domain.Logic</RootNamespace>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 </Project>

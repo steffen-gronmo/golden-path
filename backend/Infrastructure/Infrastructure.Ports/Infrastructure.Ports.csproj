@@ -6,7 +6,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>Arbeidstilsynet.ExampleBackend.Infrastructure.Ports</RootNamespace>
+    <RootNamespace>Arbeidstilsynet.GoldenPathBackend.Infrastructure.Ports</RootNamespace>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 </Project>

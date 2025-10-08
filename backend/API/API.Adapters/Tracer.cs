@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters;
 
 internal static class Tracer
 {

@@ -1,14 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Ports;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Ports;
 using Mapster;
 using MapsterMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 // ReSharper disable once CheckNamespace
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.DependencyInjection;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.DependencyInjection;
 
 public record InfrastructureConfiguration
 {

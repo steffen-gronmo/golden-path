@@ -1,8 +1,8 @@
 using System.Net;
 using Arbeidstilsynet.Common.AspNetCore.Extensions.Extensions;
-using Arbeidstilsynet.ExampleBackend.API.Ports;
+using Arbeidstilsynet.GoldenPathBackend.API.Ports;
 
-namespace Arbeidstilsynet.ExampleBackend.API.Adapters.Extensions;
+namespace Arbeidstilsynet.GoldenPathBackend.API.Adapters.Extensions;
 
 internal static class StartupExtensions
 {

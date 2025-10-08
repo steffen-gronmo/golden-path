@@ -1,13 +1,13 @@
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test.Fixtures;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Ports;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test.Fixtures;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Ports;
 using Bogus;
 using Shouldly;
 using Xunit.Abstractions;
 using Xunit.Microsoft.DependencyInjection.Abstracts;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test;
 
 public class SakRepositoryTests(
     ITestOutputHelper testOutputHelper,

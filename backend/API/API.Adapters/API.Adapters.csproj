@@ -12,7 +12,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <EnableSdkContainerSupport>true</EnableSdkContainerSupport>
-    <RootNamespace>Arbeidstilsynet.ExampleBackend.API.Adapters</RootNamespace>
+    <RootNamespace>Arbeidstilsynet.GoldenPathBackend.API.Adapters</RootNamespace>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 </Project>

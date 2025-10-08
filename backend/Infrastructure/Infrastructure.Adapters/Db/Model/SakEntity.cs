@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model;
 
 [Table("Saker")]
 internal class SakEntity : BaseEntity

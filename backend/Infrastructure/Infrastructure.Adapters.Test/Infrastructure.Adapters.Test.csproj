@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <RootNamespace>Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test</RootNamespace>
+    <RootNamespace>Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test</RootNamespace>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>

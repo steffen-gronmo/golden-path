@@ -1,12 +1,12 @@
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Mapper;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test.Fixtures;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Mapper;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test.Fixtures;
 using Bogus;
 using MapsterMapper;
 using Shouldly;
-using SakEntity = Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model.SakEntity;
+using SakEntity = Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model.SakEntity;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test;
 
 public class InfrastructureMapperTests
 {

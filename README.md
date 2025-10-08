@@ -50,7 +50,7 @@ Usage: [create a repository from a template](https://docs.github.com/en/reposito
 
 > PRs that want to merge to main now have to pass the checks from your CI pipeline.
 
-5. Do a global replace all in your IDE for "ExampleBackend" to rename the backend application. Consider renaming `backend/ExampleBackend.sln` as well and make sure the [Dockerfile](./backend/Dockerfile) correctly references the solution.
+5. Do a global replace all in your IDE for "GoldenPathBackend" to rename the backend application. Consider renaming `backend/GoldenPathBackend.sln` as well and make sure the [Dockerfile](./backend/Dockerfile) correctly references the solution.
 
 ## Local dev
 
@@ -78,7 +78,7 @@ $: cd .nais
 1. `cd backend`
 2. `dotnet new update`
 3. Delete all files in backend except [package.json](backend\package.json)
-4. `dotnet new hexarch -n "ExampleBackend"`
+4. `dotnet new hexarch -n "GoldenPathBackend"`
 5. Restore customizations:
    1. Adjust compose files for monorepo structure
    2. Update compose and appsettings files for CORS and web app compatibility

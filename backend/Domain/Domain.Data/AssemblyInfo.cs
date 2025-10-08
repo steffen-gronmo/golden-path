@@ -1,3 +1,3 @@
-namespace Arbeidstilsynet.ExampleBackend.Domain.Data;
+namespace Arbeidstilsynet.GoldenPathBackend.Domain.Data;
 
 public interface IAssemblyInfo { }

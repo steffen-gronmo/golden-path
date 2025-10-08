@@ -1,8 +1,8 @@
-using Arbeidstilsynet.ExampleBackend.Domain.Data;
-using Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Db.Model;
+using Arbeidstilsynet.GoldenPathBackend.Domain.Data;
+using Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Db.Model;
 using Bogus;
 
-namespace Arbeidstilsynet.ExampleBackend.Infrastructure.Adapters.Test.Fixtures;
+namespace Arbeidstilsynet.GoldenPathBackend.Infrastructure.Adapters.Test.Fixtures;
 
 internal static class TestData
 {

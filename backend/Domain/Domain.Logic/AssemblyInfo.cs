@@ -4,6 +4,6 @@
 [assembly: InternalsVisibleTo("Domain.Logic.Test")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")] // Required for NSubstitute to make mocks of internal classes
 
-namespace Arbeidstilsynet.ExampleBackend.Domain.Logic;
+namespace Arbeidstilsynet.GoldenPathBackend.Domain.Logic;
 
 interface IAssemblyInfo { }
