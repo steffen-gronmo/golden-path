@@ -27,7 +27,7 @@ function initFaro(): Faro | null {
     // apiKey: process.env.NEXT_PUBLIC_FARO_API_KEY, // Optional: enable if you set api_key in Alloy faro.receiver
     app: {
       name: serviceNameForClientSide,
-      namespace: "plattform",
+      namespace: "virksomhet",
     },
     instrumentations: [
       ...getWebInstrumentations(),

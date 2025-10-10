@@ -95,7 +95,7 @@ jobs:
         id: docker
         uses: nais/docker-build-push@791ebb6f74b82849c742a9bc9c97abe44c6c111f # v0
         with:
-          team: plattform
+          team: virksomhet
           image_suffix: backend
           docker_context: ./backend
           dockerfile: ./backend/Dockerfile
@@ -126,7 +126,7 @@ jobs:
         id: docker
         uses: nais/docker-build-push@791ebb6f74b82849c742a9bc9c97abe44c6c111f # v0
         with:
-          team: plattform
+          team: virksomhet
           image_suffix: web
           docker_context: .
           dockerfile: ./web/Dockerfile
